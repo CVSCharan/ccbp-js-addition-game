@@ -9,7 +9,8 @@ function App() {
 
   const checkButton = () => {
     const checkResult = firstNum + secondNum;
-    if (parseInt(result) === checkResult) {
+    console.log(result, checkResult);
+    if (result == checkResult) {
       setResultMsg(true);
     } else {
       setResultMsg(false);
@@ -25,9 +26,9 @@ function App() {
       return null;
     }
     if (resultMsg === true) {
-      return <p>Congratulations! You got it right.</p>;
+      return <p className="congo">Congratulations! You got it right.</p>;
     } else {
-      return <p>Please Try Again!</p>;
+      return <p className="fail">Please Try Again!</p>;
     }
   };
 
@@ -35,6 +36,7 @@ function App() {
     setFirstNum(Math.ceil(Math.random() * 100));
     setSecondNum(Math.ceil(Math.random() * 100));
     setResult("");
+    setResultMsg(null);
   };
 
   return (
@@ -64,14 +66,14 @@ function App() {
           <button
             id="checkButton"
             className="btn btn-primary mr-3"
-            onclick={checkButton}
+            onClick={checkButton}
           >
             Check
           </button>
           <button
             id="restartButton"
             className="btn btn-primary"
-            onclick={restart}
+            onClick={restart}
           >
             Restart
           </button>
